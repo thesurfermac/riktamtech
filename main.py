@@ -40,31 +40,12 @@ def create_app(test_config=None):
 
 app, user_datastore = create_app()
 app.config['DEBUG'] = True
-# app.config['SECRET_KEY'] = 'super-secret'
-# app.config['SECURITY_PASSWORD_SALT'] = 'super-salty'
+
 
 # Setup Flask-Security
 
 
 auth = HTTPBasicAuth()
-
-# Create a user to test with
-# Use this for the first time to create a admin password
-# @app.before_first_request
-# def create_user():
-#     init_db()
-#     user = user_datastore.create_user(email='abhinav@chat.net')
-#     # user = User(email='abhinav@chat.net', password="adminpass")
-#     user.hash_password(password='adminpass')
-#     admin_role=user_datastore.create_role(name="admin", description="Creates and edits other users.")
-#     normal_user_role=user_datastore.create_role(name="normal_user", description="Creates/edits groups, messages, members.")
-#     # admin_role = Role(name="admin", description="Creates and edits other users.")
-#     # normal_user_role = Role(name="normal_user", description="Creates/edits groups, messages, members.")
-#     db_session.add(user)
-#     db_session.add(admin_role)
-#     db_session.add(normal_user_role)
-#     user_datastore.add_role_to_user(user=user,role=admin_role)
-#     db_session.commit()
 
 @click.command('init-db')
 @with_appcontext

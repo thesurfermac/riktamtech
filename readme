@@ -4,8 +4,11 @@ python -m venv venv
 src venv/bin/activate
 pip install -r requirements.txt
 
+
 $env:FLASK_APP = "main"
 $env:FLASK_ENV = "development" 
+
+flask init-db # to setup the tables  with one admin user and one normal user.
 flask run  # to run the application
 
-pytest  # to run the test cases.
+pytest  # to run the test cases. Test cases use the main db.
